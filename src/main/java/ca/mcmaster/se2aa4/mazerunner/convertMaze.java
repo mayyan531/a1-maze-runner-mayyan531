@@ -67,7 +67,6 @@ public class convertMaze {// methods to convert the maze to a 2d array, identify
     public int getExitRow(){
         return exitRow;
     }
-
 }
 
 
