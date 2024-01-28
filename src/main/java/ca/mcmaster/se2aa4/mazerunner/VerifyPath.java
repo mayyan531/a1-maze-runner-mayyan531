@@ -11,6 +11,6 @@ public class VerifyPath {
         String sPath = shortPath.factorizePath(mazeFile);
         String lPath = longPath.findPath(mazeFile);
 
-        return Objects.equals(inputPath, sPath) || Objects.equals(inputPath, lPath);//verifies if either path is the input
+        return Objects.equals(inputPath.toUpperCase(), sPath) || Objects.equals(inputPath.toUpperCase(), lPath);//verifies if either path is the input
     }
 }

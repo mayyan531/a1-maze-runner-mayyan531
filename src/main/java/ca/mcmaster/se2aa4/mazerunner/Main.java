@@ -27,7 +27,7 @@ public class Main {
             try {
                 cmd = parser.parse(options, args);
             } catch (ParseException e) {
-                System.err.println(e.getMessage());
+                logger.error("Missing Argument");
                 return;
             }
 
@@ -44,7 +44,8 @@ public class Main {
             logger.info("**** Reading the maze from file " + maze);
             BufferedReader reader = new BufferedReader(new FileReader(maze));
             String line;
-            while ((line = reader.readLine()) != null) {
+
+            /*while ((line = reader.readLine()) != null) {
                 for (int idx = 0; idx < line.length(); idx++) {
                     if (line.charAt(idx) == '#') {
                         System.out.print("WALL ");
@@ -53,7 +54,7 @@ public class Main {
                     }
                 }
                 System.out.print(System.lineSeparator());
-            }
+            }*/
 
             if(pathSequence==null){
 
