@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class verifyPath {
     factorizePath shortPath = new factorizePath();
-    findPath longPath = new findPath();
+    //findPath longPath = new findPath();
 
-    public boolean verifyPath(String inputPath){
+    /*public boolean verifyPath(String inputPath){
         String sPath = shortPath.factorizePath();
         String lPath = longPath.findPath();
 
@@ -15,5 +15,5 @@ public class verifyPath {
         }
 
         return false;
-    }
+    }*/
 }

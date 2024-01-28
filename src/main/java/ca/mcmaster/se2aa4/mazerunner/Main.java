@@ -55,10 +55,11 @@ public class Main {
         } catch(Exception e) {
             System.err.println("/!\\ An error has occured /!\\");
         }
+
         logger.info("**** Computing path");
 
-        findPath path = new findPath();
-        logger.info("Path is", path);
+        /*findPath path = new findPath();
+        logger.info("Path is", path);*/
 
         logger.info("PATH NOT COMPUTED");
         logger.info("** End of MazeRunner");
