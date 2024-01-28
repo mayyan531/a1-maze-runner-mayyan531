@@ -23,11 +23,15 @@ public class FindPath {// finds the path using right hand rule
 
         int[] exitPos = {exitRow, maze.getColumns()-1};
 
+        System.out.println("direction is" + direction);
+
         while (!Arrays.equals(currPos, exitPos)){
             if (direction ==1){//north
                 if (isPath(mazeArr,currPos[0],currPos[1]+1)){//check right
-                    direction =2;
+                    direction = 2;
                     path.append(right);
+                    currPos[1]++;
+                    path.append(forwards);
                 }
                 else if (isPath(mazeArr,currPos[0]-1,currPos[1])){//forwards
                     currPos[0]--;
@@ -46,16 +50,19 @@ public class FindPath {// finds the path using right hand rule
                 if (isPath(mazeArr,currPos[0]+1,currPos[1])){//check right
                     direction =3;
                     path.append(right);
+                    currPos[0]++;
+                    path.append(forwards);
+                    System.out.println("direction is" + direction);
                 }
                 else if (isPath(mazeArr,currPos[0],currPos[1]+1)){//forwards
-                    currPos[1]=currPos[1]+1;
+                    currPos[1]++;
                     path.append(forwards);
+                    System.out.println("direction is" + direction);
                 }
                 else{//left
                     direction =1;
                     path.append(left);
                 }
-                System.out.println("direction is" + direction);
                 System.out.println(path);
                 System.out.println("Current position is"+ currPos[0] + currPos[1]);
                 System.out.println("Exit position is"+ exitPos[0] + exitPos[1]);
@@ -65,9 +72,11 @@ public class FindPath {// finds the path using right hand rule
                 if (isPath(mazeArr,currPos[0],currPos[1]-1)){//check right
                     direction =4;
                     path.append(right);
+                    currPos[1]--;
+                    path.append(forwards);
                 }
                 else if (isPath(mazeArr,currPos[0]+1,currPos[1])){//forwards
-                    currPos[0]--;
+                    currPos[0]++;
                     path.append(forwards);
                 }
                 else{//left
@@ -80,9 +89,11 @@ public class FindPath {// finds the path using right hand rule
 
             }
             else if (direction == 4){//west
-                if (isPath(mazeArr,currPos[0]+1,currPos[1])){//check right
-                    direction =1;
+                if (isPath(mazeArr,currPos[0]-1,currPos[1])){//check right
+                    direction = 1;
                     path.append(right);
+                    currPos[0]--;
+                    path.append(forwards);
                 }
                 else if (isPath(mazeArr,currPos[0],currPos[1]-1)){//forwards
                     currPos[1]--;
@@ -101,7 +112,7 @@ public class FindPath {// finds the path using right hand rule
     }
 
     public static void main(String[] args) throws IOException {
-        String mazeFilePath = "./examples/straight.maz.txt"; // Provide the path to your maze file
+        String mazeFilePath = "./examples/small.maz.txt"; // Provide the path to your maze file
         FindPath mazeConverter = new FindPath();
 
         System.out.println(mazeConverter.findPath(mazeFilePath));

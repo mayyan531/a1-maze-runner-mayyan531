@@ -71,7 +71,7 @@ public class ConvertMaze {// methods to convert the maze to a 2d array, identify
     public int getColumns(){ return columns; }
 
     public static void main(String[] args) {
-        String mazeFilePath = "./examples/straight.maz.txt"; // Provide the path to your maze file
+        String mazeFilePath = "./examples/small.maz.txt"; // Provide the path to your maze file
         ConvertMaze mazeConverter = new ConvertMaze();
 
         try {
