@@ -70,30 +70,6 @@ public class ConvertMaze {// methods to convert the maze to a 2d array, identify
 
     public int getColumns(){ return columns; }
 
-    public static void main(String[] args) {
-        String mazeFilePath = "./examples/small.maz.txt"; // Provide the path to your maze file
-        ConvertMaze mazeConverter = new ConvertMaze();
-
-        try {
-            int[][] mazeArr = mazeConverter.getMazeArr(mazeFilePath);
-
-            // Print the converted maze array for verification
-            for (int row = 0; row < mazeArr.length; row++) {
-                for (int col = 0; col < mazeArr[row].length; col++) {
-                    System.out.print(mazeArr[row][col] + " ");
-                }
-                System.out.println();
-            }
-        } catch (FileNotFoundException e) {
-            System.err.println("Maze file not found: " + e.getMessage());
-        } catch (IOException e) {
-            System.err.println("Error reading maze file: " + e.getMessage());
-        }
-        System.out.println(mazeConverter.getEntryRow());
-        System.out.println(mazeConverter.getExitRow());
-    }
-
-
 }
 
 
