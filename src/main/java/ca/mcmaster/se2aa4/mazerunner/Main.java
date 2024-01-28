@@ -52,16 +52,19 @@ public class Main {
                 }
                 System.out.print(System.lineSeparator());
             }
+            logger.info("**** Computing path");
+
+            FactorizePath path = new FactorizePath();
+
+            String factorizedPath = path.factorizePath(mazeFilePath);
+
+            logger.info("Path is:");
+            logger.info(factorizedPath);
+            logger.info("** End of MazeRunner");
+
         } catch(Exception e) {
             System.err.println("/!\\ An error has occured /!\\");
         }
-
-        logger.info("**** Computing path");
-
-        /*findPath path = new findPath();
-        logger.info("Path is", path);*/
-
         logger.info("PATH NOT COMPUTED");
-        logger.info("** End of MazeRunner");
     }
 }

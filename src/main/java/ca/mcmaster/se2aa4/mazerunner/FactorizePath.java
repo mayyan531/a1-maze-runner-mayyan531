@@ -26,8 +26,8 @@ public class FactorizePath {//converts the path to a factorized path
             else{
                 factorizedPath.append(count).append(cur);
             }
-
         }
+        //System.out.println(factorizedPath.toString());
         return factorizedPath.toString();
     }
 }

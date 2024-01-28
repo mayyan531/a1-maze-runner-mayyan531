@@ -89,6 +89,7 @@ public class FindPath {// finds the path using right hand rule
                 }
             }
         }
+        //System.out.println(path.toString());
         return path.toString();
     }
 }
