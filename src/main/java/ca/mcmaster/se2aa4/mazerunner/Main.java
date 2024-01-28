@@ -18,7 +18,8 @@ public class Main {
             logger.info("** Starting Maze Runner");
 
             Options options = new Options();
-            options.addOption("i", true, "Maze File Path");
+            options.addOption("i", true, "MAZE_FILE");
+            options.addOption("p",true,"PATH_SEQUENCE");
 
             CommandLineParser parser = new DefaultParser();
             CommandLine cmd = null;
@@ -32,13 +33,14 @@ public class Main {
 
             String mazeFilePath = cmd.getOptionValue("i");
 
+            String pathSequence = cmd.getOptionValue("p");
+
             if(mazeFilePath==null){
-                logger.info("null file path");
+                logger.error("/!\\ An error has occurred: no MAZE_FILE/!\\");
                 return;
             }
 
             File maze = new File(mazeFilePath);
-
             logger.info("**** Reading the maze from file " + maze);
             BufferedReader reader = new BufferedReader(new FileReader(maze));
             String line;
@@ -52,19 +54,35 @@ public class Main {
                 }
                 System.out.print(System.lineSeparator());
             }
-            logger.info("**** Computing path");
 
-            FactorizePath path = new FactorizePath();
+            if(pathSequence==null){
 
-            String factorizedPath = path.factorizePath(mazeFilePath);
+                logger.info("**** Computing path");
 
-            logger.info("Path is:");
-            logger.info(factorizedPath);
-            logger.info("** End of MazeRunner");
+                FactorizePath path = new FactorizePath();
+
+                String factorizedPath = path.factorizePath(mazeFilePath);
+
+                System.out.println("Path is: " + factorizedPath);
+
+                logger.info("** End of MazeRunner");
+            }
+            else{
+                logger.info("**** Validating path");
+
+                VerifyPath verify = new VerifyPath();
+
+                if(verify.verifyPath(mazeFilePath,pathSequence)){
+                    System.out.println(pathSequence + " is the correct path");
+                }
+                else{
+                    System.out.println(pathSequence + " is a incorrect path");
+                }
+                logger.info("** End of MazeRunner");
+            }
 
         } catch(Exception e) {
-            System.err.println("/!\\ An error has occured /!\\");
+            logger.error("/!\\ An error has occurred /!\\");
         }
-        logger.info("PATH NOT COMPUTED");
     }
 }
