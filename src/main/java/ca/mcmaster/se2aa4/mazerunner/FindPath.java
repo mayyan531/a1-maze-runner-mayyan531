@@ -50,7 +50,6 @@ public class FindPath {// finds the path using right hand rule
                 else if (isPath(mazeArr,currPos[0],currPos[1]+1)){//forwards
                     currPos[1]++;
                     path.append(forwards);
-                    System.out.println("direction is" + direction);
                 }
                 else{//left
                     direction =1;
