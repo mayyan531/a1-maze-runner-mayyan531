@@ -1,9 +1,6 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-
 import org.apache.commons.cli.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,7 +19,7 @@ public class Main {
             options.addOption("p",true,"PATH_SEQUENCE");
 
             CommandLineParser parser = new DefaultParser();
-            CommandLine cmd = null;
+            CommandLine cmd;
 
             try {
                 cmd = parser.parse(options, args);
@@ -32,7 +29,6 @@ public class Main {
             }
 
             String mazeFilePath = cmd.getOptionValue("i");
-
             String pathSequence = cmd.getOptionValue("p");
 
             if(mazeFilePath==null){
@@ -42,19 +38,6 @@ public class Main {
 
             File maze = new File(mazeFilePath);
             logger.info("**** Reading the maze from file " + maze);
-            BufferedReader reader = new BufferedReader(new FileReader(maze));
-            String line;
-
-            /*while ((line = reader.readLine()) != null) {
-                for (int idx = 0; idx < line.length(); idx++) {
-                    if (line.charAt(idx) == '#') {
-                        System.out.print("WALL ");
-                    } else if (line.charAt(idx) == ' ') {
-                        System.out.print("PASS ");
-                    }
-                }
-                System.out.print(System.lineSeparator());
-            }*/
 
             if(pathSequence==null){
 

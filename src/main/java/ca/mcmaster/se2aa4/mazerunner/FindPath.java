@@ -23,7 +23,7 @@ public class FindPath {// finds the path using right hand rule
 
         int[] exitPos = {exitRow, maze.getColumns()-1};
 
-        while (!Arrays.equals(currPos, exitPos)){
+        while (!Arrays.equals(currPos, exitPos)){//adds based on the direction currently facing
             if (direction ==1){//north
                 if (isPath(mazeArr,currPos[0],currPos[1]+1)){//check right
                     direction = 2;

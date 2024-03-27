@@ -1,7 +1,6 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -69,7 +68,6 @@ public class ConvertMaze {// methods to convert the maze to a 2d array, identify
     }
 
     public int getColumns(){ return columns; }
-
 }
 
 
